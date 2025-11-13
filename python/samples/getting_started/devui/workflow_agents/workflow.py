@@ -21,7 +21,6 @@ from agent_framework import AgentExecutorResponse, WorkflowBuilder
 from agent_framework.azure import AzureOpenAIChatClient
 from pydantic import BaseModel
 
-
 # Define structured output for review results
 class ReviewResult(BaseModel):
     """Review evaluation with scores and feedback."""
@@ -56,8 +55,7 @@ def is_approved(message: Any) -> bool:
         return review.score >= 80
     except Exception:
         return True
-
-
+ 
 # Create Azure OpenAI chat client
 chat_client = AzureOpenAIChatClient(api_key=os.environ.get("AZURE_OPENAI_API_KEY", ""))
 
